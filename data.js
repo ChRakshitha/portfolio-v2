@@ -9,28 +9,27 @@ window.PORTFOLIO = {
   // ── Header / identity ──────────────────────────────────────
   name:   "RAKSHITHA CHERUKURI",
   fileId: "SV-0812-R",                       // shown in the title bar
-  model:  "VARIANT TERMINAL · MODEL 1977",   // shown on boot screen + bezel
+  model:  "VARIANT TERMINAL · MODEL 2004",   // shown on boot screen + bezel
 
   // ── 1 VARIANT (home screen) ────────────────────────────────
   headline: "BACKEND ENGINEER WHO DESIGNS THE SYSTEM AND SHIPS IT.",
   dossier: [
     ["DESIGNATION",     "SOFTWARE DEVELOPMENT ENGINEER"],
-    ["CURRENT POST",    "JUNIOR SDE · TILICHO LABS"],
-    ["KNOWN ALIASES",   "BACKEND ENGINEER · API ARCHITECT · WIREFRAMER"],
+    ["CURRENT POST",    "JUNIOR SDE"],
+    // ["KNOWN ALIASES",   "BACKEND ENGINEER · API ARCHITECT · WIREFRAMER"],
     ["ACADEMIC RECORD", "B.TECH CSE · CGPA 9.1 / 10"],
-    ["CLEARANCE",       "GATE QUALIFIED, 2025"],
-    ["PREFERRED TOOLS", "TYPESCRIPT · GRAPHQL · MONGODB"],
-    ["THREAT LEVEL",    "SHIPS TO PRODUCTION"]
+    // ["CLEARANCE",       "GATE QUALIFIED, 2025"],
+    // ["PREFERRED TOOLS", "TYPESCRIPT · GRAPHQL · MONGODB"],
+    ["THREAT LEVEL",    "SHIPS AND TEST IN PRODUCTION"]
   ],
   telemetry: [
-    ["500K+",    "REQUESTS/DAY"],
-    ["15S → 3S", "API, 40K RECORDS"],
-    ["12+",      "GRAPHQL APIS SHIPPED"],
-    ["5–10K",    "TICKETS/DAY OWNED"],
-    ["90%",      "KINNECT TEST ACCURACY"]
+    // ["500K+",    "REQUESTS/DAY"],
+    // ["15S → 3S", "API, 40K RECORDS"],
+    ["25+",      "GRAPHQL APIS SHIPPED"],
+    ["4",    "PROJECTS WORKED ON AT WORK"],
+    ["5",      "LIVE PERSONAL PROJECTS"]
   ],
-  fieldNotes: "Subject prefers owning a system end to end, from the schema and the indexes to the wireframes and the spec. Has been observed making slow things fast. Approach with interesting problems.",
-
+  fieldNotes: "Subject is prone to over thinking and over-engineering. Subject is known to ship and test in production and talk about movies uncontrollably.",
   // ── 2 PROJECTS ─────────────────────────────────────────────
   // To add a project: copy one { ... } block, paste it at the end
   // of the list (mind the comma), and edit the text.
@@ -163,6 +162,73 @@ window.PORTFOLIO = {
         "Fully offline with local storage, no ads"
       ],
       outcome: "Difficulty labels that match real solve complexity, in an app that works anywhere and never interrupts you."
+    },
+    {
+      name: "ARUVU KHATA",
+      kind: "OFFLINE VOICE · ANDROID",
+      line: "A shop's credit book you keep by talking to it in Telugu, fully offline.",
+      points: [
+        "A short spoken conversation (who → items → total), read back aloud and saved on \"అవును\"",
+        "On-device Telugu speech recognition: int8 IndicConformer via sherpa-onnx, no internet needed",
+        "Telugu-aware parser turns number words like నూట యాభై into 150 and fuzzy-matches customer names"
+      ],
+      stack:  "Expo · React Native · TypeScript · sherpa-onnx · IndicConformer · EAS",
+      result: "0 internet needed, runs on budget phones",
+      repo:   "",   // repo is private; add "https://github.com/ChRakshitha/voice-ledger" if you make it public
+      links: [
+        ["SOURCE CODE", "[ PRIVATE REPO ]", ""],
+        ["DOWNLOAD (APK)", "[ ADD DOWNLOAD LINK ]", ""]
+      ],
+      shots: [
+        ["VOICE ENTRY CONVERSATION", ""],
+        ["CUSTOMER LEDGER", ""],
+        ["OVERPAYMENT WARNING", ""]
+      ],
+      problem:  "Many small shops in Telugu-speaking regions still keep credit records in paper notebooks. Typing-based ledger apps are slow at a busy counter, and cloud speech services need reliable internet and don't handle mixed Telugu–English speech well.",
+      approach: "Don't parse one long sentence. Hold a short spoken conversation instead: one question at a time, so each answer is short, single-purpose and far easier to recognise and parse reliably.",
+      built: [
+        "Conversational voice entry: customer name → items → total, then a spoken read-back and confirmation",
+        "Hands-free turn-taking with energy-based end-of-speech detection and per-turn noise calibration",
+        "Fully offline speech recognition: AI4Bharat's IndicConformer (Telugu, int8) on-device through sherpa-onnx",
+        "Telugu-aware parser for Telugu and transliterated-English numbers (రెండు వేల ఐదు వందలు → 2500, థర్టీ → 30), separating quantities from prices",
+        "Ledger accounting netted per customer, so one customer's advance never hides another's debt; overpayments trigger a warning",
+        "Customer history, edit/delete, repayments by period, voice balance search and CSV export",
+        "Over-the-air updates for testers via EAS Update, with fingerprint-based runtime versions"
+      ],
+      outcome: "A Telugu-first ledger that a shopkeeper can run by voice on a budget Android phone with no internet, built with Expo and EAS and no local Android Studio setup."
+    },
+    {
+      name: "PROJECT WORKBENCH",
+      kind: "FULL-STACK · MONOREPO",
+      line: "A project tracker for every area of life, with a dashboard, checklists and a public read-only view.",
+      points: [
+        "Dashboard by status and priority, with current work, upcoming deadlines and overdue projects",
+        "Enforced status lifecycle: idea → planning → planned → in progress → completed, plus blocked, paused and dropped",
+        "Owner mode edits everything; visitors get a read-only public view"
+      ],
+      stack:  "React 19 · TypeScript · Fastify · PostgreSQL · Drizzle ORM · TanStack Query · Docker",
+      result: "Checklist-driven progress, end to end",
+      repo:   "https://github.com/ChRakshitha/workBench",
+      links: [
+        ["SOURCE CODE", "github.com/ChRakshitha/workBench ↗", "https://github.com/ChRakshitha/workBench"],
+        ["LIVE SITE",   "[ NOT DEPLOYED · RUN LOCALLY ]", ""]
+      ],
+      shots: [
+        ["DASHBOARD", ""],
+        ["PROJECT DETAIL", ""],
+        ["PROJECTS LIST + FILTERS", ""]
+      ],
+      problem:  "Side projects, goals and ideas end up scattered across notes, apps and memory, with no single place showing what's in progress, what's due and what's quietly overdue.",
+      approach: "Treat personal projects like real work: a clear lifecycle with enforced transitions, checklists that drive progress, and a layered API (routes → services → repositories) on a typed stack.",
+      built: [
+        "Dashboard with status and priority breakdowns, current work, upcoming deadlines and overdue projects",
+        "Project lifecycle with enforced status transitions",
+        "Checklists that calculate each project's progress automatically",
+        "Categories, tags, search, filters and sorting; links, comments and an activity log on each project",
+        "Owner and public modes, with JWT sessions in HTTP-only cookies",
+        "pnpm monorepo: Fastify + Drizzle ORM API, versioned PostgreSQL migrations, Docker for local development"
+      ],
+      outcome: "One place to see every personal project and where it stands, with a read-only view that can be shared publicly."
     }
   ],
 
