@@ -49,7 +49,9 @@
     },
 
     projects() {
-      return file === null ? projectList() : projectDetail(file);
+      // CASE FILES (disabled for now): restore this line to turn them back on
+      // return file === null ? projectList() : projectDetail(file);
+      return projectList();
     },
 
     timeline() {
@@ -107,7 +109,9 @@
     return D.projects.map((p, i) => `
       <section class="project">
         <div class="project-head">
+          ${/* CASE FILES (disabled for now): swap the <span> below back for this button
           <button class="ptitle" data-open="${i}" aria-label="Open the full case file for ${esc(p.name)}">[${num(i)}] ${esc(p.name)} <small>OPEN FILE ▸</small></button>
+          */ ""}<span class="ptitle" style="cursor:default;text-decoration:none">[${num(i)}] ${esc(p.name)}</span>
           <span>${esc(p.kind)} · ${i + 1}/${n}</span>
         </div>
         <div class="line">${esc(p.line)}</div>
@@ -121,6 +125,9 @@
       </section>`).join("");
   }
 
+  /* CASE FILES (disabled for now): the full page for one project.
+     To turn case files back on, remove this comment wrapper and restore
+     the three other "CASE FILES" spots in this file.
   function projectDetail(i) {
     const n = D.projects.length;
     const p = D.projects[i];
@@ -157,6 +164,7 @@
         </div>
       </div>`;
   }
+  */
 
   // ── Rendering ─────────────────────────────────────────────
   const pane = $("pane");
@@ -178,8 +186,9 @@
     const t = e.target.closest("[data-tab],[data-open],[data-close]");
     if (!t) return;
     if (t.dataset.tab) go(t.dataset.tab);
-    else if (t.dataset.open !== undefined) { file = Number(t.dataset.open); render(); }
-    else if (t.hasAttribute("data-close")) { file = null; render(); }
+    // CASE FILES (disabled for now): open / close a project
+    // else if (t.dataset.open !== undefined) { file = Number(t.dataset.open); render(); }
+    // else if (t.hasAttribute("data-close")) { file = null; render(); }
   });
 
   // Keyboard: 1–5 switch tabs, Esc closes a project
@@ -187,7 +196,8 @@
     if (e.target.closest("input, textarea") || e.metaKey || e.ctrlKey || e.altKey) return;
     const n = Number(e.key);
     if (n >= 1 && n <= TABS.length) go(TABS[n - 1][0]);
-    if (e.key === "Escape" && file !== null) { file = null; render(); }
+    // CASE FILES (disabled for now): Esc closes a project
+    // if (e.key === "Escape" && file !== null) { file = null; render(); }
   });
 
   // ── Clock ─────────────────────────────────────────────────

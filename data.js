@@ -70,67 +70,38 @@ window.PORTFOLIO = {
       outcome: "No message survives a closed room; only metadata is stored. The model was then extended to group chat, scaling toward 20 participants."
     },
     {
-      name: "VIDYA",
-      kind: "APPLIED AI",
-      line: "One topic in, a ready-to-use study set out.",
+      name: "ARUVU KHATA",
+      kind: "OFFLINE VOICE · ANDROID",
+      line: "A shop's credit book you keep by talking to it in Telugu, fully offline.",
       points: [
-        "Backend workflows on the OpenAI API generate 20+ questions, flashcards and FAQs per session",
-        "Structured prompt iteration lifted output relevance by 60% over a baseline set",
-        "Built as a modular API, so the frontend needs no manual formatting"
+        "A short spoken conversation (who → items → total), read back aloud and saved on \"అవును\"",
+        "On-device Telugu speech recognition: int8 IndicConformer via sherpa-onnx, no internet needed",
+        "Telugu-aware parser turns number words like నూట యాభై into 150 and fuzzy-matches customer names"
       ],
-      stack:  "Python · OpenAI API · React · Tailwind CSS",
-      result: "+60% output relevance",
-      repo:   "https://github.com/ChRakshitha/vidya",
+      stack:  "Expo · React Native · TypeScript · sherpa-onnx · IndicConformer · EAS",
+      result: "0 internet needed, runs on budget phones",
+      repo:   "",   // repo is private; add "https://github.com/ChRakshitha/voice-ledger" if you make it public
       links: [
-        ["SOURCE CODE", "github.com/ChRakshitha/vidya ↗", "https://github.com/ChRakshitha/vidya"],
-        ["TEAM REPO",   "github.com/guna1526/TEAM-43 ↗", "https://github.com/guna1526/TEAM-43"],
-        ["LIVE SITE",   "[ ADD LIVE URL ]", ""]
+        ["SOURCE CODE", "[ PRIVATE REPO ]", ""],
+        ["DOWNLOAD (APK)", "[ ADD DOWNLOAD LINK ]", ""]
       ],
       shots: [
-        ["TOPIC INPUT", ""],
-        ["GENERATED FLASHCARDS", ""],
-        ["QUESTION SET", ""]
+        ["VOICE ENTRY CONVERSATION", ""],
+        ["CUSTOMER LEDGER", ""],
+        ["OVERPAYMENT WARNING", ""]
       ],
-      problem:  "Turning a topic into study material by hand is slow, and raw model output needs cleanup before a student can use it.",
-      approach: "Ran structured prompt-iteration cycles and measured output relevance against a baseline prompt set.",
+      problem:  "Many small shops in Telugu-speaking regions still keep credit records in paper notebooks. Typing-based ledger apps are slow at a busy counter, and cloud speech services need reliable internet and don't handle mixed Telugu–English speech well.",
+      approach: "Don't parse one long sentence. Hold a short spoken conversation instead: one question at a time, so each answer is short, single-purpose and far easier to recognise and parse reliably.",
       built: [
-        "Backend workflows on the OpenAI API",
-        "Auto-generates 20+ questions, flashcards and FAQs per study session",
-        "Packaged as a modular API: one topic returns a ready-to-use set",
-        "No manual formatting needed on the frontend"
+        "Conversational voice entry: customer name → items → total, then a spoken read-back and confirmation",
+        "Hands-free turn-taking with energy-based end-of-speech detection and per-turn noise calibration",
+        "Fully offline speech recognition: AI4Bharat's IndicConformer (Telugu, int8) on-device through sherpa-onnx",
+        "Telugu-aware parser for Telugu and transliterated-English numbers (రెండు వేల ఐదు వందలు → 2500, థర్టీ → 30), separating quantities from prices",
+        "Ledger accounting netted per customer, so one customer's advance never hides another's debt; overpayments trigger a warning",
+        "Customer history, edit/delete, repayments by period, voice balance search and CSV export",
+        "Over-the-air updates for testers via EAS Update, with fingerprint-based runtime versions"
       ],
-      outcome: "Output relevance up 60% over the baseline prompts, and a study set that arrives ready to use."
-    },
-    {
-      name: "KINNECT",
-      kind: "15-HOUR HACKATHON",
-      line: "Finding missing children at large gatherings with facial recognition.",
-      points: [
-        "Matching pipeline reached 90% identification accuracy on test cases",
-        "Wireframe to working, tested MVP inside a 15-hour hackathon",
-        "Owned system design and testing; the demo ran a real upload-to-match flow"
-      ],
-      stack:  "Facial recognition · System design · Figma · Tailwind CSS",
-      result: "90% accuracy on test cases",
-      repo:   "https://github.com/ChRakshitha/kinnect",
-      links: [
-        ["SOURCE CODE", "github.com/ChRakshitha/kinnect ↗", "https://github.com/ChRakshitha/kinnect"],
-        ["LIVE DEMO",   "[ ADD DEMO URL ]", ""]
-      ],
-      shots: [
-        ["PHOTO UPLOAD", ""],
-        ["MATCH RESULT", ""],
-        ["FIGMA WIREFRAMES", ""]
-      ],
-      problem:  "At a large public gathering, a missing-child report kicks off a frantic manual search through faces and crowds.",
-      approach: "Fifteen hours on the clock. She owned the system design and the testing and validation process end to end.",
-      built: [
-        "Facial recognition matching pipeline",
-        "Figma wireframes translated into working HTML/CSS screens",
-        "Screens wired to the recognition backend",
-        "A demo that ran a real upload-to-match flow, not mockups"
-      ],
-      outcome: "A working, tested MVP inside the hackathon window, with 90% identification accuracy on test cases."
+      outcome: "A Telugu-first ledger that a shopkeeper can run by voice on a budget Android phone with no internet, built with Expo and EAS and no local Android Studio setup."
     },
     {
       name: "SUDOKU",
@@ -164,38 +135,67 @@ window.PORTFOLIO = {
       outcome: "Difficulty labels that match real solve complexity, in an app that works anywhere and never interrupts you."
     },
     {
-      name: "ARUVU KHATA",
-      kind: "OFFLINE VOICE · ANDROID",
-      line: "A shop's credit book you keep by talking to it in Telugu, fully offline.",
+      name: "KINNECT",
+      kind: "15-HOUR HACKATHON",
+      line: "Finding missing children at large gatherings with facial recognition.",
       points: [
-        "A short spoken conversation (who → items → total), read back aloud and saved on \"అవును\"",
-        "On-device Telugu speech recognition: int8 IndicConformer via sherpa-onnx, no internet needed",
-        "Telugu-aware parser turns number words like నూట యాభై into 150 and fuzzy-matches customer names"
+        "Matching pipeline reached 90% identification accuracy on test cases",
+        "Wireframe to working, tested MVP inside a 15-hour hackathon",
+        "Owned system design and testing; the demo ran a real upload-to-match flow"
       ],
-      stack:  "Expo · React Native · TypeScript · sherpa-onnx · IndicConformer · EAS",
-      result: "0 internet needed, runs on budget phones",
-      repo:   "",   // repo is private; add "https://github.com/ChRakshitha/voice-ledger" if you make it public
+      stack:  "Facial recognition · System design · Figma · Tailwind CSS",
+      result: "90% accuracy on test cases",
+      repo:   "https://github.com/ChRakshitha/kinnect",
       links: [
-        ["SOURCE CODE", "[ PRIVATE REPO ]", ""],
-        ["DOWNLOAD (APK)", "[ ADD DOWNLOAD LINK ]", ""]
+        ["SOURCE CODE", "github.com/ChRakshitha/kinnect ↗", "https://github.com/ChRakshitha/kinnect"],
+        ["LIVE DEMO",   "[ ADD DEMO URL ]", ""]
       ],
       shots: [
-        ["VOICE ENTRY CONVERSATION", ""],
-        ["CUSTOMER LEDGER", ""],
-        ["OVERPAYMENT WARNING", ""]
+        ["PHOTO UPLOAD", ""],
+        ["MATCH RESULT", ""],
+        ["FIGMA WIREFRAMES", ""]
       ],
-      problem:  "Many small shops in Telugu-speaking regions still keep credit records in paper notebooks. Typing-based ledger apps are slow at a busy counter, and cloud speech services need reliable internet and don't handle mixed Telugu–English speech well.",
-      approach: "Don't parse one long sentence. Hold a short spoken conversation instead: one question at a time, so each answer is short, single-purpose and far easier to recognise and parse reliably.",
+      problem:  "At a large public gathering, a missing-child report kicks off a frantic manual search through faces and crowds.",
+      approach: "Fifteen hours on the clock. She owned the system design and the testing and validation process end to end.",
       built: [
-        "Conversational voice entry: customer name → items → total, then a spoken read-back and confirmation",
-        "Hands-free turn-taking with energy-based end-of-speech detection and per-turn noise calibration",
-        "Fully offline speech recognition: AI4Bharat's IndicConformer (Telugu, int8) on-device through sherpa-onnx",
-        "Telugu-aware parser for Telugu and transliterated-English numbers (రెండు వేల ఐదు వందలు → 2500, థర్టీ → 30), separating quantities from prices",
-        "Ledger accounting netted per customer, so one customer's advance never hides another's debt; overpayments trigger a warning",
-        "Customer history, edit/delete, repayments by period, voice balance search and CSV export",
-        "Over-the-air updates for testers via EAS Update, with fingerprint-based runtime versions"
+        "Facial recognition matching pipeline",
+        "Figma wireframes translated into working HTML/CSS screens",
+        "Screens wired to the recognition backend",
+        "A demo that ran a real upload-to-match flow, not mockups"
       ],
-      outcome: "A Telugu-first ledger that a shopkeeper can run by voice on a budget Android phone with no internet, built with Expo and EAS and no local Android Studio setup."
+      outcome: "A working, tested MVP inside the hackathon window, with 90% identification accuracy on test cases."
+    },
+    {
+      name: "VIDYA",
+      kind: "APPLIED AI",
+      line: "One topic in, a ready-to-use study set out.",
+      points: [
+        "Backend workflows on the OpenAI API generate 20+ questions, flashcards and FAQs per session",
+        "Structured prompt iteration lifted output relevance by 60% over a baseline set",
+        "Built as a modular API, so the frontend needs no manual formatting"
+      ],
+      stack:  "Python · OpenAI API · React · Tailwind CSS",
+      result: "+60% output relevance",
+      repo:   "https://github.com/ChRakshitha/vidya",
+      links: [
+        ["SOURCE CODE", "github.com/ChRakshitha/vidya ↗", "https://github.com/ChRakshitha/vidya"],
+        ["TEAM REPO",   "github.com/guna1526/TEAM-43 ↗", "https://github.com/guna1526/TEAM-43"],
+        ["LIVE SITE",   "[ ADD LIVE URL ]", ""]
+      ],
+      shots: [
+        ["TOPIC INPUT", ""],
+        ["GENERATED FLASHCARDS", ""],
+        ["QUESTION SET", ""]
+      ],
+      problem:  "Turning a topic into study material by hand is slow, and raw model output needs cleanup before a student can use it.",
+      approach: "Ran structured prompt-iteration cycles and measured output relevance against a baseline prompt set.",
+      built: [
+        "Backend workflows on the OpenAI API",
+        "Auto-generates 20+ questions, flashcards and FAQs per study session",
+        "Packaged as a modular API: one topic returns a ready-to-use set",
+        "No manual formatting needed on the frontend"
+      ],
+      outcome: "Output relevance up 60% over the baseline prompts, and a study set that arrives ready to use."
     },
     {
       name: "PROJECT WORKBENCH",
@@ -235,22 +235,22 @@ window.PORTFOLIO = {
   // ── 3 TIMELINE ─────────────────────────────────────────────
   // Oldest first. `branches` are optional sub-items. Mark the latest with current: true.
   timeline: [
-    { when: "2020", what: "CLASS XII · KENDRIYA VIDYALAYA, VIZIANAGARAM" },
+    { when: "JUL 2026", what: "JUNIOR SDE · TILICHO LABS", current: true },
+    { when: "JUN 2025", what: "SDE INTERN · TILICHO LABS" },
     { when: "2022", what: "B.TECH CSE (SYSTEMS ENGG.) · LENDI INSTITUTE", branches: [
       { when: "HACKATHON", what: "KINNECT: WIREFRAME TO MVP IN 15 HOURS" },
       { when: "2025",      what: "GATE QUALIFIED, IN THIRD YEAR" }
     ]},
-    { when: "JUN 2025", what: "SDE INTERN · TILICHO LABS" },
-    { when: "JUL 2026", what: "JUNIOR SDE · TILICHO LABS", current: true }
+    { when: "2020", what: "CLASS XII · KENDRIYA VIDYALAYA, VIZIANAGARAM" },
   ],
   // Newest first. Set past: true for a dimmer box.
   experience: [
     {
       title: "JUNIOR SDE · TILICHO LABS · JUL 2026 – NOW",
       points: [
-        "Owns backend logic for the Customer Support module: tickets, escalations, cron jobs and email digests for 5,000–10,000 tickets/day",
+        "Owned backend logic for the Customer Support module: tickets, escalations, cron jobs and email digests for 5,000–10,000 tickets/day",
         "Cut a data API from 15s to 3s on 40k records by redesigning MongoDB indexing",
-        "Wireframed 3 core flows (~20 screens) and turned PRDs into implementation-ready specs"
+        "Wireframed 3 core flows (~20 screens) and turned PRDs into implementation-ready specs",
       ]
     },
     {
@@ -258,14 +258,15 @@ window.PORTFOLIO = {
       past: true,
       points: [
         "Designed and shipped 12+ production GraphQL APIs for a system handling 500k+ requests/day",
-        "Built screens from Figma for Supada (React Native/Expo) and Thrive Cafe (React, TanStack Query)"
+        "Worked on the frontend for an educational mobile app supporting dual languages, with React Native and Gluestack UI",
+        "Worked on the frontend for a mental health web app, to analyze user data and generate reports with React, Tailwind CSS, Tanstack query and Chart.js",
       ]
     }
   ],
 
   // ── 4 SKILLS ───────────────────────────────────────────────
   // Anything listed in `dailySkills` gets highlighted.
-  dailySkills: ["TypeScript", "GraphQL", "Node.js", "Express", "MongoDB", "Mongoose"],
+  dailySkills: ["TypeScript", "GraphQL", "Node.js", "Express", "MongoDB", "Mongoose", "RBAC"],
   skills: [
     ["LANGUAGES",      ["TypeScript", "Python", "JavaScript", "C"]],
     ["BACKEND & APIS", ["Node.js", "Express", "GraphQL", "REST", "Socket.IO", "JWT", "RBAC", "Rate limiting"]],
